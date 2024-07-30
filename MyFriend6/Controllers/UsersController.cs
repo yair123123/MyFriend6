@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyFriend6.Data;
 using MyFriend6.Models;
+using MyFriend6.ViewModel;
 
 namespace MyFriend6.Controllers
 {
@@ -46,7 +47,13 @@ namespace MyFriend6.Controllers
         // GET: Users/Create
         public IActionResult Create()
         {
-            return View();
+            var viewModel = new UserCreateViewModel();
+            viewModel.User = new User
+            {
+                FirstName = "Moshe",
+                LastName = "lkjhgfd"
+            };
+            return View(viewModel);
         }
 
         // POST: Users/Create
